@@ -32,7 +32,15 @@ public class Cafe extends Building {
         nCreams -= nCreamsUsed;
         nCups -= 1;
 
+        System.out.println("A " + size + " ounce coffee with " + nSugarPacketsUsed +  " sugars and " + nCreamsUsed + " creams sold!");
+
     }
+
+    public void sellCoffee() {
+        sellCoffee(6,2,3);
+
+        System.out.println("A 6 ounce coffee with 2 sugars and 3 creams sold!");
+    }    
 
     /**
      * Adds to the size of each ingredient.
@@ -55,11 +63,20 @@ public class Cafe extends Building {
         return desc;
     }
 
+
+
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee()");
+    }
+
     public static void main(String[] args) {
         Cafe myCafe = new Cafe("Campus Center Cafe",
                 "123 W St", 1, 100, 20, 50, 10);
         System.out.println(myCafe.toString());
         myCafe.sellCoffee(10, 1, 5);
+        myCafe.showOptions();
+        myCafe.enter();
+        myCafe.sellCoffee(10,2,4);
     }
 
 }

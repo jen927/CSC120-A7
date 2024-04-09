@@ -75,7 +75,7 @@ public class Library extends Building {
    * @param title title of book
    * @return true or false
    */
-  public boolean containsTitle(String title) {
+  private boolean containsTitle(String title) {
     return collection.containsKey(title);
   }
 
@@ -85,7 +85,7 @@ public class Library extends Building {
    * @param title title of book
    * @return true or false
    */
-  public boolean isAvailable(String title) {
+  private boolean isAvailable(String title) {
     if (!containsTitle(title)) {
       throw new RuntimeException(title + " is not in collection.");
     }
@@ -109,6 +109,10 @@ public class Library extends Building {
 
   }
 
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut()\n + returnBook()\n + isAvailable()");
+}
+
   public static void main(String[] args) {
     Library mylibrary = new Library("Neilson Libarary", "123 W ST", 4);
     mylibrary.addTitle("Clear and Muddy Loss of Love");
@@ -116,7 +120,8 @@ public class Library extends Building {
     mylibrary.printCollection();
     mylibrary.checkOut("Clear and Muddy Loss of Love");
     mylibrary.printCollection();
-    mylibrary.addTitle("Clear and Muddy Loss of Love");
+    
+    mylibrary.showOptions();
   }
 
 }

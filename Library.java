@@ -5,12 +5,21 @@ import java.util.Hashtable;
 public class Library extends Building {
 
   private Hashtable<String, Boolean> collection;
+  private boolean hasElavator;
 
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElavator) {
     super(name, address, nFloors); // is a building
     // with...
     this.collection = new Hashtable<String, Boolean>();
+    this.hasElavator = hasElavator;
     System.out.println("You have built a library: 📖");
+  }
+
+  public void goToFloor(int floorNum) {
+    if (!this.hasElavator) {
+      throw new RuntimeException("This building does not have an elevator. Please take the stairs.");
+    }
+    super.goToFloor(floorNum);
   }
 
   /**
@@ -109,18 +118,22 @@ public class Library extends Building {
 
   }
 
+  /**
+   * Prints the available action at the Library.
+   */
   public void showOptions() {
-    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut()\n + returnBook()\n + isAvailable()");
-}
+    super.showOptions();
+    System.out.println(" + checkOut(title)\n + returnBook(title)\n + isAvailable(title)");
+  }
 
   public static void main(String[] args) {
-    Library mylibrary = new Library("Neilson Libarary", "123 W ST", 4);
+    Library mylibrary = new Library("Neilson Libarary", "123 W ST", 4, true);
     mylibrary.addTitle("Clear and Muddy Loss of Love");
     mylibrary.addTitle("Grandmaster of Demonic Cultivation");
     mylibrary.printCollection();
     mylibrary.checkOut("Clear and Muddy Loss of Love");
     mylibrary.printCollection();
-    
+
     mylibrary.showOptions();
   }
 

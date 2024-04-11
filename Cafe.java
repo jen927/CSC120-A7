@@ -5,6 +5,7 @@ public class Cafe extends Building {
     private int nSugarPackets; // The number of sugar packets remaining in inventory
     private int nCreams; // The number of "splashes" of cream remaining in inventory
     private int nCups; // The number of cups remaining in inventory
+    private boolean hasElavator; // Whether Building has a Elavator
 
     public Cafe(String name, String address, int nFloors,
             int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
@@ -14,6 +15,13 @@ public class Cafe extends Building {
         this.nCreams = nCreams;
         this.nCups = nCups;
         System.out.println("You have built a cafe: ☕");
+    }
+
+    public void goToFloor(int floorNum) {
+        if (!this.hasElavator) {
+            throw new RuntimeException("This building does not have an elevator.");
+          }
+        System.out.println("Access to floors other than 1 is not premitted.");
     }
 
     /**
@@ -32,15 +40,20 @@ public class Cafe extends Building {
         nCreams -= nCreamsUsed;
         nCups -= 1;
 
-        System.out.println("A " + size + " ounce coffee with " + nSugarPacketsUsed +  " sugars and " + nCreamsUsed + " creams sold!");
+        System.out.println("A " + size + " ounce coffee with " + nSugarPacketsUsed + " sugars and " + nCreamsUsed
+                + " creams sold!");
 
     }
 
+    /**
+     * decreases the number of ingridents per coffee.
+     * 
+     */
     public void sellCoffee() {
-        sellCoffee(6,2,3);
+        sellCoffee(6, 2, 3);
 
         System.out.println("A 6 ounce coffee with 2 sugars and 3 creams sold!");
-    }    
+    }
 
     /**
      * Adds to the size of each ingredient.
@@ -57,16 +70,19 @@ public class Cafe extends Building {
         nCups += nCupsAdded;
     }
 
+    /**
+     * Prints available actions one can take related to the building
+     * 
+     */
+    public void showOptions() {
+        super.showOptions();
+        System.out.println(" + sellCoffee()");
+    }
+
     public String toString() {
         String desc = super.toString();
         desc = "CAFE: " + desc;
         return desc;
-    }
-
-
-
-    public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee()");
     }
 
     public static void main(String[] args) {
@@ -76,7 +92,7 @@ public class Cafe extends Building {
         myCafe.sellCoffee(10, 1, 5);
         myCafe.showOptions();
         myCafe.enter();
-        myCafe.sellCoffee(10,2,4);
+        myCafe.sellCoffee(10, 2, 4);
     }
 
 }

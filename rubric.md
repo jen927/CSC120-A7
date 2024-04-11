@@ -10,17 +10,17 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ## Assignment Points:
 
-_____ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the modified `Building` class.
+_YES____ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the modified `Building` class.
 
 ### Level 1: Method `Overrides` (4 pts)
 
-_____ 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
+__YES___ 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
 
-_____ 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
+_YES____ 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
 
-_____ 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
+_YES____ 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
 
-_____ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
+__YES___ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
 
 ### Level 2: Method `Overloads` (3 pts)
 

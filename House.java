@@ -59,6 +59,20 @@ public class House extends Building {
   }
 
   /**
+   * Overloaded moveIn.Moves in multiple people at a time
+   * 
+   * @param names names of resident
+   */
+  public void moveIn(ArrayList<String> names){
+    for (String i : names) {
+      if (isResident(i) ){
+        throw new RuntimeException(i + " is already a resident!");
+      }
+      residents.add(i);
+    }
+  }
+
+  /**
    * Removes name from residents list
    * 
    * @param name name of resident
@@ -73,6 +87,21 @@ public class House extends Building {
   }
 
   /**
+   * Overloads moveOut. Removes multiple names from residents list
+   * 
+   * @param names list of residents moving out
+   */
+  public void moveOut(ArrayList<String> names){
+    for (String i : names) {
+      if (!isResident(name)) {
+        throw new RuntimeException(name + " is not a resident!");
+      }
+      residents.remove(name);
+      System.out.println(i);
+    }
+    }
+
+  /**
    * returns whether person is a resident
    * 
    * @param person name of resident
@@ -81,6 +110,7 @@ public class House extends Building {
   public boolean isResident(String person) {
     return residents.contains(name);
   }
+
 
   /**
    * Overrides showOptions(). Prints actions available at the House.

@@ -1,5 +1,6 @@
 /* This is a stub for the Library class */
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Library extends Building {
@@ -90,6 +91,18 @@ public class Library extends Building {
       throw new RuntimeException(title + " is already available.");
     }
     collection.replace(title, false, true);
+  }
+
+  public void returnBook(ArrayList<String> Books){
+    for (int i = 0; i < Books.size(); i++){
+      if (!containsTitle(Books.get(i))) {
+        throw new RuntimeException(Books.get(i) + " is not in collection and cannot be returned.");
+      }
+      if (!collection.get(Books.get(i)).equals(true)) {
+        throw new RuntimeException(Books.get(i) + " is already available.");
+      }
+      collection.replace(Books.get(i), false, true);
+    }
   }
 
   /**

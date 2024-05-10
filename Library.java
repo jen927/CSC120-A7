@@ -15,6 +15,20 @@ public class Library extends Building {
     System.out.println("You have built a library: 📖");
   }
 
+  /**
+   * Overloads constructor. Adds default number of floors to 1 and hasElavator to
+   * false.
+   * 
+   */
+  public Library(String name, String address) {
+    this(name, address, 1, false);
+  }
+
+  /**
+   * Overrides goToFloor(). Allows direct travel to floor number if elavator
+   * exists.
+   * 
+   */
   public void goToFloor(int floorNum) {
     if (!this.hasElavator) {
       throw new RuntimeException("This building does not have an elevator. Please take the stairs.");
@@ -119,7 +133,7 @@ public class Library extends Building {
   }
 
   /**
-   * Prints the available action at the Library.
+   * Overrides showOptions(). Prints the available action at the Library.
    */
   public void showOptions() {
     super.showOptions();

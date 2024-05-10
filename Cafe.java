@@ -7,6 +7,7 @@ public class Cafe extends Building {
     private int nCups; // The number of cups remaining in inventory
     private boolean hasElavator; // Whether Building has a Elavator
 
+    /* Default constructor */
     public Cafe(String name, String address, int nFloors,
             int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         super(name, address, nFloors);
@@ -17,10 +18,19 @@ public class Cafe extends Building {
         System.out.println("You have built a cafe: ☕");
     }
 
+    /* Overloaded constructor */
+    public Cafe(String name, String address) {
+        this(name, address, 1, 100, 50, 100, 50);
+    }
+
+    /**
+     * Overrides goToFloor(). Does not allow travel to other floors.
+     * 
+     */
     public void goToFloor(int floorNum) {
         if (!this.hasElavator) {
             throw new RuntimeException("This building does not have an elevator.");
-          }
+        }
         System.out.println("Access to floors other than 1 is not premitted.");
     }
 

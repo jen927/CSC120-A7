@@ -18,7 +18,7 @@ public class House extends Building {
   }
 
   /**
-   * Travels directly to specific floor number
+   * Overrides goToFloor(). Travels directly to specific floor number
    * 
    */
   public void goToFloor(int floorNum) {
@@ -83,7 +83,7 @@ public class House extends Building {
   }
 
   /**
-   * Prints actions available at the House.
+   * Overrides showOptions(). Prints actions available at the House.
    * 
    */
   public void showOptions() {
